@@ -16,7 +16,7 @@ $config['pages_order_by'] = 'alpha';	// 並び順 "alpha" or "date"
 $config['pages_order'] = 'asc';			// 昇順降順 "asc" or "desc"
 $config['excerpt_length'] = 50;			// 省略する文字の長さ
 
-// オプション
+// カスタム設定
 
 $config['custom_setting'] = 'Hello'; 	// テーマ内の {{ config.custom_setting }} からアクセスできます
 

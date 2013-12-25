@@ -9,13 +9,13 @@ Description: This description will go in the meta description tag
 
 ### コンテンツを作りましょう
 
-PicoはフラットファイルCMSです。すべてファイル＆フォルダで管理するのでデータベースを使う必要はありません。
-`.md`ファイルを"content"フォルダに作成するだけでページができます。
+PicoはフラットファイルCMSです。すべてファイル＆フォルダで管理するのでデータベースを使う必要はありません。  
+`.md`ファイルを"content"フォルダに作成するだけでページができます。  
 例えば、このページはトップページとして`index.md`を呼び出しています。
 
-"content"フォルダ内にさらにフォルダを作りたい場合は、`content/sub`のようにして`index.md`をその中に作成します。
-そのフォルダへはURL:`http://yousite.com/sub`のようにしてアクセスできます。
-サブフォルダに他のページを作りたい場合は、`.md`ファイルを`content/sub/page.md`のように作って置くと、URL:`http://yousite.com/sub/page`でアクセスできます。
+"content"フォルダ内にさらにフォルダを作りたい場合は、`content/sub`のようにして`index.md`をその中に作成します。  
+そのフォルダへはURL:`http://yousite.com/sub`のようにしてアクセスできます。  
+サブフォルダに他のページを作りたい場合は、`.md`ファイルを`content/sub/page.md`のように作って置くと、URL:`http://yousite.com/sub/page`でアクセスできます。  
 次にファイル構造と対応するURLを示します。
 
 <table>
@@ -57,7 +57,8 @@ PicoはフラットファイルCMSです。すべてファイル＆フォルダ�
 
 "themes"フォルダを編集することでテーマを作成できます。初期テーマを参考にしてください。Picoはテンプレートエンジンとして[Twig](http://twig.sensiolabs.org/documentation)を使っています。テーマの切り替えは"config.php"内の変数`$config['theme']`を変更することで可能です。
 
-テーマのフォルダには必ず`index.html`を作りHTML構造を定義する必要があります。次にテーマで使えるTwig変数を示します。
+テーマのフォルダには必ず`index.html`を作りHTML構造を定義する必要があります。  
+次にテーマで使えるTwig変数を示します。
 
 * `{{ config }}` - config.phpに書いた変数 (例: `{{ config.theme }}` = "default")
 * `{{ base_dir }}` - ルートディレクトリのパス
@@ -100,7 +101,7 @@ PicoはフラットファイルCMSです。すべてファイル＆フォルダ�
 
 ### 設定
 
-Picoの初期設定はルートディレクトリの"config.php"を編集することで上書きできます。"config.php"はすべての設定を含んでいます。設定を上書きする場合はコメントアウトを外して設定を変更してください。
+Picoの初期設定はルートディレクトリの"config.php"を編集することで上書きできます。設定を上書きする場合は"config.php"のコメントアウトを外して設定を変更してください。
 
 ### ドキュメント
 
