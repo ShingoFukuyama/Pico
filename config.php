@@ -1,23 +1,23 @@
-<?php 
+<?php
 
 /*
-// Override any of the default settings below:
+// 以下の設定を上書きしてください
 
-$config['site_title'] = 'Pico';			// Site title
-$config['base_url'] = ''; 				// Override base URL (e.g. http://example.com)
-$config['theme'] = 'default'; 			// Set the theme (defaults to "default")
-$config['date_format'] = 'jS M Y';		// Set the PHP date format
-$config['twig_config'] = array(			// Twig settings
-	'cache' => false,					// To enable Twig caching change this to CACHE_DIR
-	'autoescape' => false,				// Autoescape Twig vars
-	'debug' => false					// Enable Twig debug
+$config['site_title'] = 'Pico';			// サイトのタイトル
+$config['base_url'] = ''; 				// ベースとなるURL (例: http://example.com)
+$config['theme'] = 'default'; 			// テーマを設定(初期テーマは"default")
+$config['date_format'] = 'jS M Y';		// PHPの日付フォーマット
+$config['twig_config'] = array(			// Twig設定
+	'cache' => false,					// Twigのキャッシュを有効にするには、ここをCACHE_DIRにします
+	'autoescape' => false,				// Twig変数の自動エスケープ
+	'debug' => false					// Twigのデバッグ
 );
-$config['pages_order_by'] = 'alpha';	// Order pages by "alpha" or "date"
-$config['pages_order'] = 'asc';			// Order pages "asc" or "desc"
-$config['excerpt_length'] = 50;			// The pages excerpt length (in words)
+$config['pages_order_by'] = 'alpha';	// 並び順 "alpha" or "date"
+$config['pages_order'] = 'asc';			// 昇順降順 "asc" or "desc"
+$config['excerpt_length'] = 50;			// 省略する文字の長さ
 
-// To add a custom config setting:
+// オプション
 
-$config['custom_setting'] = 'Hello'; 	// Can be accessed by {{ config.custom_setting }} in a theme
+$config['custom_setting'] = 'Hello'; 	// テーマ内の {{ config.custom_setting }} からアクセスできます
 
 */

@@ -1,24 +1,26 @@
 /*
-Title: Welcome
+Title: ようこそ
 Description: This description will go in the meta description tag
 */
 
-## Welcome to Pico
+## Picoへようこそ！
 
-Congratulations, you have successfully installed [Pico](http://pico.dev7studios.com). Pico is a stupidly simple, blazing fast, flat file CMS.
+[Pico](http://pico.dev7studios.com)はとてもシンプルなデータベースフリーのCMSです。
 
-### Creating Content
+### コンテンツを作りましょう
 
-Pico is a flat file CMS, this means there is no administration backend and database to deal with. You simply create `.md` files in the "content"
-folder and that becomes a page. For example, this file is called `index.md` and is shown as the main landing page. 
+PicoはフラットファイルCMSです。すべてファイル＆フォルダで管理するのでデータベースを使う必要はありません。
+`.md`ファイルを"content"フォルダに作成するだけでページができます。
+例えば、このページはトップページとして`index.md`を呼び出しています。
 
-If you create a folder within the content folder (e.g. `content/sub`) and put an `index.md` inside it, you can access that folder at the URL 
-`http://yousite.com/sub`. If you want another page within the sub folder, simply create a text file with the corresponding name (e.g. `content/sub/page.md`)
-and you will be able to access it from the URL `http://yousite.com/sub/page`. Below we've shown some examples of content locations and their corresponing URL's:
+"content"フォルダ内にさらにフォルダを作りたい場合は、`content/sub`のようにして`index.md`をその中に作成します。
+そのフォルダへはURL:`http://yousite.com/sub`のようにしてアクセスできます。
+サブフォルダに他のページを作りたい場合は、`.md`ファイルを`content/sub/page.md`のように作って置くと、URL:`http://yousite.com/sub/page`でアクセスできます。
+次にファイル構造と対応するURLを示します。
 
 <table>
 	<thead>
-		<tr><th>Physical Location</th><th>URL</th></tr>
+		<tr><th width="220">ファイルの場所</th><th>URL</th></tr>
 	</thead>
 	<tbody>
 		<tr><td>content/index.md</td><td>/</td></tr>
@@ -29,51 +31,49 @@ and you will be able to access it from the URL `http://yousite.com/sub/page`. Be
 	</tbody>
 </table>
 
-If a file cannot be found, the file `content/404.md` will be shown.
+ファイルが見つからない場合は`content/404.md`が表示されます。
 
-### Text File Markup
+### Text File Markup マークアップ
 
-Text files are marked up using [Markdown](http://daringfireball.net/projects/markdown/syntax). They can also contain regular HTML.
+`.md`ファイルは[Markdown](http://daringfireball.net/projects/markdown/syntax)の書式で書きます。HTMLタグを使用することもできます。
 
-At the top of text files you can place a block comment and specify certain attributes of the page. For example:
+ファイルの一番上にブロックコメントとページの属性を次のように書きます。
 
 	/ *
-	Title: Welcome
-	Description: This description will go in the meta description tag
-	Author: Joe Bloggs
-	Date: 2013/01/01
+	Title: ようこそ
+	Description: この部分はmeta descriptionタグになります。
+	Author: ジョー・ブログス
+	Date: 2014/01/01
 	Robots: noindex,nofollow
 	*/
 
-These values will be contained in the `{{ meta }}` variable in themes (see below).
+これらの値はテーマ内の変数`{{ meta }}`に含まれます。以下を参照。
 
-There are also certain variables that you can use in your text files:
+次のようにすると`.md`ファイルで使うことが出来ます。
 
-* <code>&#37;base_url&#37;</code> - The URL to your Pico site
+* <code>&#37;base_url&#37;</code> - あなたのサイトのURL
 
-### Themes
+### テーマ
 
-You can create themes for your Pico installation in the "themes" folder. Check out the default theme for an example of a theme. Pico uses
-[Twig](http://twig.sensiolabs.org/documentation) for it's templating engine. You can select your theme by setting the `$config['theme']` variable
-in config.php to your theme folder.
+"themes"フォルダを編集することでテーマを作成できます。初期テーマを参考にしてください。Picoはテンプレートエンジンとして[Twig](http://twig.sensiolabs.org/documentation)を使っています。テーマの切り替えは"config.php"内の変数`$config['theme']`を変更することで可能です。
 
-All themes must include an `index.html` file to define the HTML structure of the theme. Below are the Twig variables that are available to use in your theme:
+テーマのフォルダには必ず`index.html`を作りHTML構造を定義する必要があります。次にテーマで使えるTwig変数を示します。
 
-* `{{ config }}` - Conatins the values you set in config.php (e.g. `{{ config.theme }}` = "default")
-* `{{ base_dir }}` - The path to your Pico root directory
-* `{{ base_url }}` - The URL to your Pico site
-* `{{ theme_dir }}` - The path to the Pico active theme direcotry
-* `{{ theme_url }}` - The URL to the Pico active theme direcotry
-* `{{ site_title }}` - Shortcut to the site title (defined in config.php)
-* `{{ meta }}` - Contains the meta values from the current page
+* `{{ config }}` - config.phpに書いた変数 (例: `{{ config.theme }}` = "default")
+* `{{ base_dir }}` - ルートディレクトリのパス
+* `{{ base_url }}` - サイトのURL
+* `{{ theme_dir }}` - 使用中テーマのディレクトリのパス
+* `{{ theme_url }}` - 使用中テーマのディレクトリのURL
+* `{{ site_title }}` - config.phpに書かれているサイトのタイトル
+* `{{ meta }}` - 現在のページのmetaタグの値
 	* `{{ meta.title }}`
 	* `{{ meta.description }}`
 	* `{{ meta.author }}`
 	* `{{ meta.date }}`
 	* `{{ meta.date_formatted }}`
 	* `{{ meta.robots }}`
-* `{{ content }}` - The content of the current page (after it has been processed through Markdown)
-* `{{ pages }}` - A collection of all the content in your site
+* `{{ content }}` - Markdown処理されたあとの現在のページのコンテンツ
+* `{{ pages }}` - 全コンテンツのまとめ
 	* `{{ page.title }}`
 	* `{{ page.url }}`
 	* `{{ page.author }}`
@@ -81,12 +81,12 @@ All themes must include an `index.html` file to define the HTML structure of the
 	* `{{ page.date_formatted }}`
 	* `{{ page.content }}`
 	* `{{ page.excerpt }}`
-* `{{ prev_page }}` - A page object of the previous page (relative to current_page)
-* `{{ current_page }}` - A page object of the current_page
-* `{{ next_page }}` - A page object of the next page (relative to current_page)
-* `{{ is_front_page }}` - A boolean flag for the front page
+* `{{ prev_page }}` - 現在ページの前のページのオブジェクト
+* `{{ current_page }}` - 現在ページのオブジェクト
+* `{{ next_page }}` - 現在ページの次のページのオブジェクト
+* `{{ is_front_page }}` - トップページかどうかの判定
 
-Pages can be used like:
+ページリストは次のようになります。
 
 <pre>&lt;ul class=&quot;nav&quot;&gt;
 	{% for page in pages %}
@@ -94,15 +94,15 @@ Pages can be used like:
 	{% endfor %}
 &lt;/ul&gt;</pre>
 
-### Plugins
+### プラグイン
 
-See [http://pico.dev7studios.com/plugins](http://pico.dev7studios.com/plugins)
+参照 [http://pico.dev7studios.com/plugins](http://pico.dev7studios.com/plugins)
 
-### Config
+### 設定
 
-You can override the default Pico settings (and add your own custom settings) by editing config.php in the root Pico directory. The config.php file
-lists all of the settings and their defaults. To override a setting, simply uncomment it in config.php and set your custom value.
+Picoの初期設定はルートディレクトリの"config.php"を編集することで上書きできます。"config.php"はすべての設定を含んでいます。設定を上書きする場合はコメントアウトを外して設定を変更してください。
 
-### Documentation
+### ドキュメント
 
-For more help have a look at the Pico documentation at [http://pico.dev7studios.com/docs](http://pico.dev7studios.com/docs)
+詳細は [http://pico.dev7studios.com/docs](http://pico.dev7studios.com/docs) で確認できます。
+
